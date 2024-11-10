@@ -11,10 +11,10 @@ jobs:
       with:
   java-version: 17//此处的JDK版本要同maven pom.xml文件中一致
     - name: Cache Maven packages
-  uses: actions/cache@v2
-  with:
-  path: ~/.m2
-  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-  restore-keys: ${{ runner.os }}-m2
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
     - name: Run tests with Maven
-  run: mvn -B test --file pom.xml /
+      run: mvn -B test --file pom.xml /
